@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 20:18:49 by dario             #+#    #+#             */
-/*   Updated: 2025/09/07 20:44:35 by dario            ###   ########.fr       */
+/*   Updated: 2025/09/07 20:58:06 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ class ClapTrap
 
 	void	printStatus(void);
 	void	printMsg(e_action action, const unsigned int amount,
-				const std::string &target, const std::string clapType);
+				const std::string &target);
 
 	protected:
 	std::string	_name;

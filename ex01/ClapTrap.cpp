@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 20:18:47 by dario             #+#    #+#             */
-/*   Updated: 2025/09/07 20:46:34 by dario            ###   ########.fr       */
+/*   Updated: 2025/09/07 21:06:31 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 ClapTrap::ClapTrap(void)
 	: _name("ClapTrap"), _hitPts(10), _energyPts(10), _attackDmg(0), _trapType(CLAPTRAP)
 {
-	printMsg(ARRIVE, 0, "", this->_trapType);
+	printMsg(ARRIVE, 0, "");
 }
 
 ClapTrap::ClapTrap(const std::string name)
 	: _name(name), _hitPts(10), _energyPts(10), _attackDmg(0), _trapType(CLAPTRAP)
 {
-	printMsg(ARRIVE, 0, "", this->_trapType);
+	printMsg(ARRIVE, 0, "");
 }
 
 ClapTrap::ClapTrap(const ClapTrap &copy)
@@ -31,7 +31,7 @@ ClapTrap::ClapTrap(const ClapTrap &copy)
 	this->_energyPts = copy._energyPts;
 	this->_attackDmg = copy._attackDmg;
 	this->_trapType = copy._trapType;
-	printMsg(ARRIVE, 0, "", this->_trapType);
+	printMsg(ARRIVE, 0, "");
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &copy)
@@ -49,26 +49,26 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &copy)
 
 ClapTrap::~ClapTrap()
 {
-	printMsg(DESTROY, 0, "", this->_trapType);
+	printMsg(DESTROY, 0, "");
 }
 
 void ClapTrap::attack(const std::string &target)
 {
 	this->_energyPts--;
-	printMsg(ATTACK, 0, target, this->_trapType);
+	printMsg(ATTACK, 0, target);
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
 	this->_hitPts -= amount;
-	printMsg(TAKEDMG, amount, "", this->_trapType);
+	printMsg(TAKEDMG, amount, "");
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
 	this->_energyPts--;
 	this->_hitPts += amount;
-	printMsg(REPAIR, amount, "", this->_trapType);
+	printMsg(REPAIR, amount, "");
 }
 
 void ClapTrap::printStatus(void)
@@ -79,33 +79,30 @@ void ClapTrap::printStatus(void)
 }
 
 void ClapTrap::printMsg(e_action action, const unsigned int amount,
-	const std::string &target, const std::string clapType)
+	const std::string &target)
 {
 	switch (action)
 	{
 	case ARRIVE:
-		std::cout << BG_GREEN << clapType << BLUE << _name << RST BG_GREEN " has arrived!" RST << std::endl;
+		std::cout << BG_GREEN << this->_trapType << BLUE << _name << RST BG_GREEN " has arrived!" RST << std::endl;
 		break;
 
 	case DESTROY:
-		std::cout << BG_GREEN << clapType << BLUE << _name << RST BG_GREEN " leaves!" RST << std::endl;
+		std::cout << BG_GREEN << this->_trapType << BLUE << _name << RST BG_GREEN " leaves!" RST << std::endl;
 		break;
 
 	case ATTACK:
-		std::cout << clapType << BLUE << _name << RST " " BG_RED "attacked" RST " " RED
+		std::cout << this->_trapType << BLUE << _name << RST " " BG_RED "attacked" RST " " RED
 			<< target << RST "! He did " << _attackDmg << " hit points of damage." << std::endl;
 		break;
 
 	case TAKEDMG:
-		std::cout << clapType << BLUE << _name << RST " " BG_YELLOW "received" RST " " << amount << " hit points of damage." << std::endl;
+		std::cout << this->_trapType << BLUE << _name << RST " " BG_YELLOW "received" RST " " << amount << " hit points of damage." << std::endl;
 		break;
 
 	case REPAIR:
-		std::cout << clapType << BLUE << _name << RST " " BG_MAGENTA "repaired himself" RST " " << amount << " hit points!" << std::endl;
+		std::cout << this->_trapType << BLUE << _name << RST " " BG_MAGENTA "repaired himself" RST " " << amount << " hit points!" << std::endl;
 		break;
-	
-	case GUARD:
-		std::cout << clapType << BLUE << _name << RST " is now in " SPECIAL "Gate Keeper" RST " mode!" << std::endl;
 
 	default:
 		break;

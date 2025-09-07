@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 19:49:51 by dario             #+#    #+#             */
-/*   Updated: 2025/09/07 20:47:49 by dario            ###   ########.fr       */
+/*   Updated: 2025/09/07 21:07:20 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ ScavTrap::ScavTrap(void) : ClapTrap("ScavTrap")
 	this->_energyPts = 50;
 	this->_attackDmg = 20;
 	this->_trapType = SCAVTRAP;
-	printMsg(ARRIVE, 0, "", this->_trapType);
+	printMsg(ARRIVE, 0, "");
 }
 
 ScavTrap::ScavTrap(const std::string name) : ClapTrap(name)
@@ -27,7 +27,7 @@ ScavTrap::ScavTrap(const std::string name) : ClapTrap(name)
 	this->_energyPts = 50;
 	this->_attackDmg = 20;
 	this->_trapType = SCAVTRAP;
-	printMsg(ARRIVE, 0, "", this->_trapType);
+	printMsg(ARRIVE, 0, "");
 }
 
 ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap()
@@ -37,7 +37,7 @@ ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap()
 	this->_energyPts = copy._energyPts;
 	this->_attackDmg = copy._attackDmg;
 	this->_trapType = copy._trapType;
-	printMsg(ARRIVE, 0, "", this->_trapType);
+	printMsg(ARRIVE, 0, "");
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &copy)
@@ -56,10 +56,49 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &copy)
 
 ScavTrap::~ScavTrap()
 {
-	printMsg(DESTROY, 0, "", this->_trapType);
+	printMsg(DESTROY, 0, "");
+}
+
+void ScavTrap::attack(const std::string &target)
+{
+	this->_energyPts--;
+	printMsg(ATTACK, 0, target);
 }
 
 void ScavTrap::guardGate(void)
 {
-	printMsg(GUARD, 0, "", this->_trapType);
+	printMsg(GUARD, 0, "");
+}
+
+void	ScavTrap::printMsg(e_action action, const unsigned int amount, const std::string &target)
+{
+	switch (action)
+	{
+	case ARRIVE:
+		std::cout << BG_GREEN << this->_trapType << BLUE << _name << RST BG_GREEN " has arrived!" RST << std::endl;
+		break;
+
+	case DESTROY:
+		std::cout << BG_GREEN << this->_trapType << BLUE << _name << RST BG_GREEN " leaves!" RST << std::endl;
+		break;
+
+	case ATTACK:
+		std::cout << this->_trapType << BLUE << _name << RST " " BG_RED "SCAVattacked" RST " " RED
+			<< target << RST "! He did " << _attackDmg << " hit points of damage." << std::endl;
+		break;
+
+	case TAKEDMG:
+		std::cout << this->_trapType << BLUE << _name << RST " " BG_YELLOW "received" RST " " << amount << " hit points of damage." << std::endl;
+		break;
+
+	case REPAIR:
+		std::cout << this->_trapType << BLUE << _name << RST " " BG_MAGENTA "repaired himself" RST " " << amount << " hit points!" << std::endl;
+		break;
+	
+	case GUARD:
+		std::cout << "ScavTrap " BLUE << _name << RST " is now in " SPECIAL "Gate Keeper" RST " mode!" << std::endl;
+	
+	default:
+		break;
+	}
 }

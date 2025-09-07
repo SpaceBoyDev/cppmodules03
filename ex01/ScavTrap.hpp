@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 19:49:52 by dario             #+#    #+#             */
-/*   Updated: 2025/09/07 20:23:48 by dario            ###   ########.fr       */
+/*   Updated: 2025/09/07 21:04:31 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ class ScavTrap : public ClapTrap
 
 	~ScavTrap();
 
+	void	attack(const std::string &target);
 	void	guardGate(void);
+	void	printMsg(e_action action, const unsigned int amount,
+				const std::string &target);
 
 	private:
 	
