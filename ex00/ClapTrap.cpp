@@ -6,13 +6,13 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 20:18:47 by dario             #+#    #+#             */
-/*   Updated: 2025/09/04 22:07:31 by dario            ###   ########.fr       */
+/*   Updated: 2025/09/07 19:47:39 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap()
+ClapTrap::ClapTrap(void)
 	: _name("ClapTrap"), _hitPts(10), _energyPts(10), _attackDmg(0)
 {
 	printMsg(ARRIVE, 0, "");
@@ -69,9 +69,16 @@ void ClapTrap::beRepaired(unsigned int amount)
 	printMsg(REPAIR, amount, "");
 }
 
-void ClapTrap::printMsg(e_status status, const unsigned int amount, const std::string &target)
+void ClapTrap::printStatus(void)
 {
-	switch (status)
+	std::cout << "----"<< this->_name << " current status----" << std::endl
+		<< "Current Hit Points: " << this->_hitPts << std::endl
+		<< "Current Energy Points: " << this->_energyPts << std::endl;
+}
+
+void ClapTrap::printMsg(e_action action, const unsigned int amount, const std::string &target)
+{
+	switch (action)
 	{
 	case ARRIVE:
 		std::cout << BG_GREEN "ClapTrap " BLUE << _name << RST BG_GREEN " has arrived!" RST << std::endl;
@@ -88,12 +95,10 @@ void ClapTrap::printMsg(e_status status, const unsigned int amount, const std::s
 
 	case TAKEDMG:
 		std::cout << "ClapTrap " BLUE << _name << RST " " BG_YELLOW "received" RST " " << amount << " hit points of damage." << std::endl;
-		std::cout << "Current HitPts: " << _hitPts << std::endl;
 		break;
 
 	case REPAIR:
 		std::cout << "ClapTrap " BLUE << _name << RST " " BG_MAGENTA "repaired himself" RST " " << amount << " hit points!" << std::endl;
-		std::cout << "Current HitPts: " << _hitPts << std::endl;
 		break;
 
 	default:

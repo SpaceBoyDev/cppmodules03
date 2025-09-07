@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 20:18:49 by dario             #+#    #+#             */
-/*   Updated: 2025/09/04 22:07:10 by dario            ###   ########.fr       */
+/*   Updated: 2025/09/07 19:46:09 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # define BG_CYAN	"\033[46m"
 # define BG_WHITE	"\033[47m"
 
-enum e_status
+enum e_action
 {
 	ARRIVE,
 	DESTROY,
@@ -42,7 +42,7 @@ enum e_status
 class ClapTrap
 {
 	public:
-	ClapTrap();
+	ClapTrap(void);
 	ClapTrap(std::string name);
 	ClapTrap(ClapTrap &copy);
 	ClapTrap	&operator = (const ClapTrap &copy);
@@ -53,7 +53,8 @@ class ClapTrap
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
 
-	void	printMsg(e_status status, const unsigned int amount, const std::string &target);
+	void	printStatus(void);
+	void	printMsg(e_action action, const unsigned int amount, const std::string &target);
 
 	private:
 	std::string	_name;
