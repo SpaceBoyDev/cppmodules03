@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/07 19:49:51 by dario             #+#    #+#             */
-/*   Updated: 2025/09/07 21:25:59 by dario            ###   ########.fr       */
+/*   Created: 2025/09/04 20:18:47 by dario             #+#    #+#             */
+/*   Updated: 2025/09/07 21:06:31 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
 
-ScavTrap::ScavTrap(void) : ClapTrap("ScavTrap")
+ClapTrap::ClapTrap(void)
+	: _name("ClapTrap"), _hitPts(10), _energyPts(10), _attackDmg(0), _trapType(CLAPTRAP)
 {
-	this->_hitPts = 100;
-	this->_energyPts = 50;
-	this->_attackDmg = 20;
-	this->_trapType = SCAVTRAP;
 	printMsg(ARRIVE, 0, "");
 }
 
-ScavTrap::ScavTrap(const std::string name) : ClapTrap(name)
+ClapTrap::ClapTrap(const std::string name)
+	: _name(name), _hitPts(10), _energyPts(10), _attackDmg(0), _trapType(CLAPTRAP)
 {
-	this->_hitPts = 100;
-	this->_energyPts = 50;
-	this->_attackDmg = 20;
-	this->_trapType = SCAVTRAP;
 	printMsg(ARRIVE, 0, "");
 }
 
-ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap()
+ClapTrap::ClapTrap(const ClapTrap &copy)
 {
 	this->_name = copy._name;
 	this->_hitPts = copy._hitPts;
@@ -40,9 +34,8 @@ ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap()
 	printMsg(ARRIVE, 0, "");
 }
 
-ScavTrap &ScavTrap::operator=(const ScavTrap &copy)
+ClapTrap &ClapTrap::operator=(const ClapTrap &copy)
 {
-	std::cout << "Copy operator called" << std::endl;
 	if (this != &copy)
 	{
 		this->_name = copy._name;
@@ -54,36 +47,52 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &copy)
 	return (*this);
 }
 
-ScavTrap::~ScavTrap()
+ClapTrap::~ClapTrap()
 {
 	printMsg(DESTROY, 0, "");
 }
 
-void ScavTrap::attack(const std::string &target)
+void ClapTrap::attack(const std::string &target)
 {
 	this->_energyPts--;
 	printMsg(ATTACK, 0, target);
 }
 
-void ScavTrap::guardGate(void)
+void ClapTrap::takeDamage(unsigned int amount)
 {
-	printMsg(GUARD, 0, "");
+	this->_hitPts -= amount;
+	printMsg(TAKEDMG, amount, "");
 }
 
-void	ScavTrap::printMsg(e_action action, const unsigned int amount, const std::string &target)
+void ClapTrap::beRepaired(unsigned int amount)
+{
+	this->_energyPts--;
+	this->_hitPts += amount;
+	printMsg(REPAIR, amount, "");
+}
+
+void ClapTrap::printStatus(void)
+{
+	std::cout << "----"<< this->_name << " current status----" << std::endl
+		<< "Current Hit Points: " << this->_hitPts << std::endl
+		<< "Current Energy Points: " << this->_energyPts << std::endl;
+}
+
+void ClapTrap::printMsg(e_action action, const unsigned int amount,
+	const std::string &target)
 {
 	switch (action)
 	{
 	case ARRIVE:
-		std::cout << BG_GREEN << this->_trapType << BLUE << _name << RST BG_GREEN " has SCAVarrived!" RST << std::endl;
+		std::cout << BG_GREEN << this->_trapType << BLUE << _name << RST BG_GREEN " has arrived!" RST << std::endl;
 		break;
 
 	case DESTROY:
-		std::cout << BG_GREEN << this->_trapType << BLUE << _name << RST BG_GREEN " SCAVleaves!" RST << std::endl;
+		std::cout << BG_GREEN << this->_trapType << BLUE << _name << RST BG_GREEN " leaves!" RST << std::endl;
 		break;
 
 	case ATTACK:
-		std::cout << this->_trapType << BLUE << _name << RST " " BG_RED "SCAVattacked" RST " " RED
+		std::cout << this->_trapType << BLUE << _name << RST " " BG_RED "attacked" RST " " RED
 			<< target << RST "! He did " << _attackDmg << " hit points of damage." << std::endl;
 		break;
 
@@ -94,11 +103,7 @@ void	ScavTrap::printMsg(e_action action, const unsigned int amount, const std::s
 	case REPAIR:
 		std::cout << this->_trapType << BLUE << _name << RST " " BG_MAGENTA "repaired himself" RST " " << amount << " hit points!" << std::endl;
 		break;
-	
-	case GUARD:
-		std::cout << "ScavTrap " BLUE << _name << RST " is now in " SPECIAL "Gate Keeper" RST " mode!" << std::endl;
-		break;
-	
+
 	default:
 		break;
 	}

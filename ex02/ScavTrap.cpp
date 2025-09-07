@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 19:49:51 by dario             #+#    #+#             */
-/*   Updated: 2025/09/07 21:25:59 by dario            ###   ########.fr       */
+/*   Updated: 2025/09/07 21:26:04 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,11 @@ void	ScavTrap::printMsg(e_action action, const unsigned int amount, const std::s
 	switch (action)
 	{
 	case ARRIVE:
-		std::cout << BG_GREEN << this->_trapType << BLUE << _name << RST BG_GREEN " has SCAVarrived!" RST << std::endl;
+		std::cout << BG_GREEN << this->_trapType << BLUE << _name << RST BG_GREEN " has arrived!" RST << std::endl;
 		break;
 
 	case DESTROY:
-		std::cout << BG_GREEN << this->_trapType << BLUE << _name << RST BG_GREEN " SCAVleaves!" RST << std::endl;
+		std::cout << BG_GREEN << this->_trapType << BLUE << _name << RST BG_GREEN " leaves!" RST << std::endl;
 		break;
 
 	case ATTACK:
