@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 20:18:47 by dario             #+#    #+#             */
-/*   Updated: 2025/09/07 21:06:31 by dario            ###   ########.fr       */
+/*   Updated: 2025/10/02 21:39:06 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,13 +73,13 @@ void ClapTrap::beRepaired(unsigned int amount)
 
 void ClapTrap::printStatus(void)
 {
-	std::cout << "----"<< this->_name << " current status----" << std::endl
-		<< "Current Hit Points: " << this->_hitPts << std::endl
-		<< "Current Energy Points: " << this->_energyPts << std::endl;
+	std::cout << "----" << this->_name << " current status----" << std::endl
+			  << "Current Hit Points: " << this->_hitPts << std::endl
+			  << "Current Energy Points: " << this->_energyPts << std::endl;
 }
 
 void ClapTrap::printMsg(e_action action, const unsigned int amount,
-	const std::string &target)
+						const std::string &target)
 {
 	switch (action)
 	{
@@ -93,7 +93,7 @@ void ClapTrap::printMsg(e_action action, const unsigned int amount,
 
 	case ATTACK:
 		std::cout << this->_trapType << BLUE << _name << RST " " BG_RED "attacked" RST " " RED
-			<< target << RST "! He did " << _attackDmg << " hit points of damage." << std::endl;
+				  << target << RST "! He did " << _attackDmg << " hit points of damage." << std::endl;
 		break;
 
 	case TAKEDMG:
