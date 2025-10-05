@@ -6,7 +6,7 @@
 #    By: dario <dario@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/01 18:40:53 by dario             #+#    #+#              #
-#    Updated: 2025/09/04 18:03:16 by dario            ###   ########.fr        #
+#    Updated: 2025/10/05 21:30:28 by dario            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,12 +15,12 @@ NAME		=	ex03
 MAKEFLAGS	+=	--no-print-directory
 
 CC			=	g++
-CFLAGS		=	-std=c++98 -Wall -Wextra -Werror
+CFLAGS		=	-std=c++98 -Wall -Wextra -Werror -Wshadow -Wno-shadow
 RM			=	rm -f
 
 VALFLAGS	=	--tool=helgrind --tool=drd
 
-SRCS		=	Fixed.cpp Point.cpp bsp.cpp main.cpp
+SRCS		=	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 
 OBJS		=	$(SRCS:.cpp=.o)
 

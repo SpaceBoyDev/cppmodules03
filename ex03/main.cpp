@@ -6,30 +6,65 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 22:57:17 by dario             #+#    #+#             */
-/*   Updated: 2025/09/04 18:22:31 by dario            ###   ########.fr       */
+/*   Updated: 2025/10/05 22:05:54 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bsp.hpp"
-#include "Fixed.hpp"
-#include "Point.hpp"
-
-// Check with https://planetcalc.com/8108/
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main(void)
 {
-	Point a(7, 7);
-	Point b(11, 1);
-	Point c(2, 2);
+	// ClapTrap clap;
+	// ClapTrap mamon("mamon");
 
-	Point point(7, 6.9f);
+	// ScavTrap scav;
+	// ScavTrap maton("maton");
 
-	std::cout << a.getX() << " " << a.getY() << std::endl;
+	// FragTrap flag;
+	// FragTrap cabron("cabron");
 
-	if (bsp(a, b, c, point))
-		std::cout << "Dentro\n" << std::endl;
-	else
-		std::cout << "Fuera\n" << std::endl;
+	DiamondTrap diamond;
+	DiamondTrap pesao("pesao");
 
-	return (0);
+	pesao.attack("pringao");
+	pesao.printStatus();
+	pesao.takeDamage(5);
+	pesao.printStatus();
+	pesao.beRepaired(5);
+	pesao.printStatus();
+	pesao.whoAmI();
+
+	// scav.attack("pringao");
+	// scav.printStatus();
+	// scav.takeDamage(5);
+	// scav.printStatus();
+	// scav.beRepaired(5);
+	// scav.printStatus();
+	// scav.guardGate();
+
+	// maton.attack("pringao");
+	// maton.printStatus();
+	// maton.takeDamage(5);
+	// maton.printStatus();
+	// maton.beRepaired(5);
+	// maton.printStatus();
+	// maton.guardGate();
+
+	// flag.attack("pringao");
+	// flag.printStatus();
+	// flag.takeDamage(5);
+	// flag.printStatus();
+	// flag.beRepaired(5);
+	// flag.printStatus();
+	// flag.highFivesGuys();
+
+	// cabron.attack("pringao");
+	// cabron.printStatus();
+	// cabron.takeDamage(5);
+	// cabron.printStatus();
+	// cabron.beRepaired(5);
+	// cabron.printStatus();
+	// cabron.highFivesGuys();
 }
