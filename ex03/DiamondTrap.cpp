@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 21:19:23 by dario             #+#    #+#             */
-/*   Updated: 2025/10/05 22:06:33 by dario            ###   ########.fr       */
+/*   Updated: 2025/10/05 22:24:14 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &copy)
 	std::cout << "Copy operator called" << std::endl;
 	if (this != &copy)
 	{
+		this->_name = copy._name;
+		ClapTrap::_name = copy.ClapTrap::_name;
 		this->_hitPts = copy._hitPts;
 		this->_energyPts = copy._energyPts;
 		this->_attackDmg = copy._attackDmg;
