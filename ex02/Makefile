@@ -6,7 +6,7 @@
 #    By: dario <dario@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/01 18:40:53 by dario             #+#    #+#              #
-#    Updated: 2025/09/07 21:18:55 by dario            ###   ########.fr        #
+#    Updated: 2025/10/05 20:45:45 by dario            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ RM			=	rm -f
 
 VALFLAGS	=	--tool=helgrind --tool=drd
 
-SRCS		=	main.cpp ClapTrap.cpp ScavTrap.cpp FlagTrap.cpp
+SRCS		=	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
 OBJS		=	$(SRCS:.cpp=.o)
 

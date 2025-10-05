@@ -6,12 +6,12 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 22:57:17 by dario             #+#    #+#             */
-/*   Updated: 2025/10/03 20:36:31 by dario            ###   ########.fr       */
+/*   Updated: 2025/10/05 20:47:18 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
-#include "FlagTrap.hpp"
+#include "FragTrap.hpp"
 
 int main(void)
 {
@@ -21,8 +21,8 @@ int main(void)
 	ScavTrap scav;
 	ScavTrap maton("maton");
 
-	FlagTrap flag;
-	FlagTrap cabron("cabron");
+	FragTrap flag;
+	FragTrap cabron("cabron");
 
 	scav.attack("pringao");
 	scav.printStatus();

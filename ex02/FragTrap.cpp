@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FlagTrap.cpp                                       :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 21:19:23 by dario             #+#    #+#             */
-/*   Updated: 2025/09/07 21:27:01 by dario            ###   ########.fr       */
+/*   Updated: 2025/10/05 20:47:04 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FlagTrap.hpp"
+#include "FragTrap.hpp"
 
-FlagTrap::FlagTrap(void) : ClapTrap("FlagTrap")
+FragTrap::FragTrap(void) : ClapTrap("FragTrap")
 {
 	this->_hitPts = 100;
 	this->_energyPts = 100;
 	this->_attackDmg = 30;
-	this->_trapType = FLAGTRAP;
+	this->_trapType = FRAGTRAP;
 	printMsg(ARRIVE, 0, "");
 }
 
-FlagTrap::FlagTrap(const std::string name) : ClapTrap(name)
+FragTrap::FragTrap(const std::string name) : ClapTrap(name)
 {
 	this->_hitPts = 100;
 	this->_energyPts = 100;
 	this->_attackDmg = 30;
-	this->_trapType = FLAGTRAP;
+	this->_trapType = FRAGTRAP;
 	printMsg(ARRIVE, 0, "");
 }
 
-FlagTrap::FlagTrap(const FlagTrap &copy) : ClapTrap()
+FragTrap::FragTrap(const FragTrap &copy) : ClapTrap()
 {
 	this->_name = copy._name;
 	this->_hitPts = copy._hitPts;
@@ -40,7 +40,7 @@ FlagTrap::FlagTrap(const FlagTrap &copy) : ClapTrap()
 	printMsg(ARRIVE, 0, "");
 }
 
-FlagTrap &FlagTrap::operator=(const FlagTrap &copy)
+FragTrap &FragTrap::operator=(const FragTrap &copy)
 {
 	std::cout << "Copy operator called" << std::endl;
 	if (this != &copy)
@@ -54,23 +54,23 @@ FlagTrap &FlagTrap::operator=(const FlagTrap &copy)
 	return (*this);
 }
 
-FlagTrap::~FlagTrap()
+FragTrap::~FragTrap()
 {
 	printMsg(DESTROY, 0, "");
 }
 
-void FlagTrap::attack(const std::string &target)
+void FragTrap::attack(const std::string &target)
 {
 	this->_energyPts--;
 	printMsg(ATTACK, 0, target);
 }
 
-void FlagTrap::highFivesGuys(void)
+void FragTrap::highFivesGuys(void)
 {
 	printMsg(HIGHFIVE, 0, "");
 }
 
-void	FlagTrap::printMsg(e_action action, const unsigned int amount, const std::string &target)
+void FragTrap::printMsg(e_action action, const unsigned int amount, const std::string &target)
 {
 	switch (action)
 	{
@@ -84,7 +84,7 @@ void	FlagTrap::printMsg(e_action action, const unsigned int amount, const std::s
 
 	case ATTACK:
 		std::cout << this->_trapType << BLUE << _name << RST " " BG_RED "FLAGattacked" RST " " RED
-			<< target << RST "! He did " << _attackDmg << " hit points of damage." << std::endl;
+				  << target << RST "! He did " << _attackDmg << " hit points of damage." << std::endl;
 		break;
 
 	case TAKEDMG:
@@ -94,15 +94,15 @@ void	FlagTrap::printMsg(e_action action, const unsigned int amount, const std::s
 	case REPAIR:
 		std::cout << this->_trapType << BLUE << _name << RST " " BG_MAGENTA "repaired himself" RST " " << amount << " hit points!" << std::endl;
 		break;
-	
+
 	case GUARD:
 		std::cout << this->_trapType << BLUE << _name << RST " is now in " SPECIAL "Gate Keeper" RST " mode!" << std::endl;
 		break;
-	
+
 	case HIGHFIVE:
 		std::cout << this->_trapType << BLUE << _name << RST " displayed a " SPECIAL "HIGH FIVE" RST " request!" << std::endl;
 		break;
-	
+
 	default:
 		break;
 	}

@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FlagTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 21:19:22 by dario             #+#    #+#             */
-/*   Updated: 2025/09/07 21:29:22 by dario            ###   ########.fr       */
+/*   Updated: 2025/10/05 20:45:23 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FLAGTRAP_HPP
-# define FLAGTRAP_HPP
+#ifndef FRAGTRAP_HPP
+#define FRAGTRAP_HPP
 
-# include "ScavTrap.hpp"
+#include "ScavTrap.hpp"
 
-class FlagTrap : public ClapTrap
+class FragTrap : public ClapTrap
 {
-	public:
-	FlagTrap(void);
-	FlagTrap(const std::string name);
-	FlagTrap(const FlagTrap &copy);
-	FlagTrap	&operator = (const FlagTrap &copy);
+public:
+	FragTrap(void);
+	FragTrap(const std::string name);
+	FragTrap(const FragTrap &copy);
+	FragTrap &operator=(const FragTrap &copy);
 
-	~FlagTrap();
+	~FragTrap();
 
-	void	attack(const std::string &target);
-	void	highFivesGuys(void);
-	void	printMsg(e_action action, const unsigned int amount,
-				const std::string &target);
+	void attack(const std::string &target);
+	void highFivesGuys(void);
+	void printMsg(e_action action, const unsigned int amount,
+				  const std::string &target);
 
-	private:
+private:
 };
 
 #endif
