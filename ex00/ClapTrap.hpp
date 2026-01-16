@@ -6,7 +6,7 @@
 /*   By: darmarti <darmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 20:18:49 by dario             #+#    #+#             */
-/*   Updated: 2026/01/16 18:07:46 by darmarti         ###   ########.fr       */
+/*   Updated: 2026/01/16 18:37:09 by darmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,6 @@
 # define BG_MAGENTA	"\033[45m"
 # define BG_CYAN	"\033[46m"
 # define BG_WHITE	"\033[47m"
-
-enum e_action
-{
-	ARRIVE,
-	DESTROY,
-	ATTACK,
-	TAKEDMG,
-	REPAIR
-};
 
 class ClapTrap
 {
