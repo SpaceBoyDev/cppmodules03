@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
+/*   By: darmarti <darmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 20:18:49 by dario             #+#    #+#             */
-/*   Updated: 2025/09/07 19:46:09 by dario            ###   ########.fr       */
+/*   Updated: 2026/01/16 18:07:46 by darmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ class ClapTrap
 	void	beRepaired(unsigned int amount);
 
 	void	printStatus(void);
-	void	printMsg(e_action action, const unsigned int amount, const std::string &target);
 
 	private:
 	std::string	_name;

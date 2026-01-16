@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dario <dario@student.42.fr>                +#+  +:+       +#+         #
+#    By: darmarti <darmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/01 18:40:53 by dario             #+#    #+#              #
-#    Updated: 2025/10/05 21:30:28 by dario            ###   ########.fr        #
+#    Updated: 2026/01/16 18:04:22 by darmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME		=	ex03
 
 MAKEFLAGS	+=	--no-print-directory
 
-CC			=	g++
+CC			=	c++
 CFLAGS		=	-std=c++98 -Wall -Wextra -Werror -Wshadow -Wno-shadow
 RM			=	rm -f
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
+/*   By: darmarti <darmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 20:18:47 by dario             #+#    #+#             */
-/*   Updated: 2025/09/07 19:47:39 by dario            ###   ########.fr       */
+/*   Updated: 2026/01/16 18:26:11 by darmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 ClapTrap::ClapTrap(void)
 	: _name("ClapTrap"), _hitPts(10), _energyPts(10), _attackDmg(0)
 {
-	printMsg(ARRIVE, 0, "");
+	std::cout << "ClapTrap " << _name << " default constructor\n";
 }
 
 ClapTrap::ClapTrap(std::string name)
 	: _name(name), _hitPts(10), _energyPts(10), _attackDmg(0)
 {
-	printMsg(ARRIVE, 0, "");
+	std::cout << "ClapTrap " << _name << " name constructor\n";
 }
 
 ClapTrap::ClapTrap(ClapTrap &copy)
@@ -30,7 +30,8 @@ ClapTrap::ClapTrap(ClapTrap &copy)
 	this->_hitPts = copy._hitPts;
 	this->_energyPts = copy._energyPts;
 	this->_attackDmg = copy._attackDmg;
-	printMsg(ARRIVE, 0, "");
+	std::cout << "ClapTrap " << _name << " copy constructor\n";
+
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &copy)
@@ -41,67 +42,52 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &copy)
 		this->_hitPts = copy._hitPts;
 		this->_energyPts = copy._energyPts;
 		this->_attackDmg = copy._attackDmg;
+		std::cout << "ClapTrap " << _name << " equal operator\n";
 	}
 	return (*this);
 }
 
 ClapTrap::~ClapTrap()
 {
-	printMsg(DESTROY, 0, "");
+	std::cout << "ClapTrap " << _name << " has been destroyed\n";
 }
 
 void ClapTrap::attack(const std::string &target)
 {
+	if (this->_energyPts <= 0 || this->_hitPts <= 0)
+	{
+		std::cout << "ClapTrap " << _name << " can't attack\n";
+		return ;
+	}
 	this->_energyPts--;
-	printMsg(ATTACK, 0, target);
+	std::cout << "ClapTrap " << _name << " attacks " << target
+		<< ", causing " << this->_attackDmg << " points of damage!\n";
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
 	this->_hitPts -= amount;
-	printMsg(TAKEDMG, amount, "");
+	std::cout << "ClapTrap " << _name << " takes " << amount
+		<< " points of damage!\n";
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
+	if (this->_energyPts <= 0 || this->_hitPts <= 0)
+	{
+		std::cout << "ClapTrap " << _name << " can't repair himself\n";
+		return ;
+	}
 	this->_energyPts--;
 	this->_hitPts += amount;
-	printMsg(REPAIR, amount, "");
+	std::cout << "ClapTrap " << _name << " repairs himself " << amount
+		<< " hit points!\n";
 }
 
 void ClapTrap::printStatus(void)
 {
-	std::cout << "----"<< this->_name << " current status----" << std::endl
+	std::cout << "\n----"<< this->_name << " current status----" << std::endl
 		<< "Current Hit Points: " << this->_hitPts << std::endl
-		<< "Current Energy Points: " << this->_energyPts << std::endl;
-}
-
-void ClapTrap::printMsg(e_action action, const unsigned int amount, const std::string &target)
-{
-	switch (action)
-	{
-	case ARRIVE:
-		std::cout << BG_GREEN "ClapTrap " BLUE << _name << RST BG_GREEN " has arrived!" RST << std::endl;
-		break;
-
-	case DESTROY:
-		std::cout << BG_GREEN "ClapTrap " BLUE << _name << RST BG_GREEN " leaves!" RST << std::endl;
-		break;
-
-	case ATTACK:
-		std::cout << "ClapTrap " BLUE << _name << RST " " BG_RED "attacked" RST " " RED
-			<< target << RST "! He did " << _attackDmg << " hit points of damage." << std::endl;
-		break;
-
-	case TAKEDMG:
-		std::cout << "ClapTrap " BLUE << _name << RST " " BG_YELLOW "received" RST " " << amount << " hit points of damage." << std::endl;
-		break;
-
-	case REPAIR:
-		std::cout << "ClapTrap " BLUE << _name << RST " " BG_MAGENTA "repaired himself" RST " " << amount << " hit points!" << std::endl;
-		break;
-
-	default:
-		break;
-	}
+		<< "Current Energy Points: " << this->_energyPts << std::endl
+		<< "---------------------------------\n\n";
 }
