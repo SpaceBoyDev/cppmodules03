@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 22:57:17 by dario             #+#    #+#             */
-/*   Updated: 2025/10/05 22:50:23 by dario            ###   ########.fr       */
+/*   Updated: 2026/01/20 18:35:06 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@
 
 int main(void)
 {
-	// ClapTrap clap;
-	// ClapTrap mamon("mamon");
+	ClapTrap clap;
+	ClapTrap mamon("mamon");
 
-	// ScavTrap scav;
-	// ScavTrap maton("maton");
+	ScavTrap scav;
+	ScavTrap maton("maton");
 
-	// FragTrap flag;
-	// FragTrap cabron("cabron");
+	FragTrap flag;
+	FragTrap cabron("cabron");
 
 	// DiamondTrap diamond;
 	DiamondTrap	bomba("bomba");
-	DiamondTrap pesao(bomba);
+	// DiamondTrap pesao(bomba);
 
 	// pesao.attack("pringao");
 	// pesao.printStatus();
@@ -36,7 +36,8 @@ int main(void)
 	// pesao.beRepaired(5);
 	// pesao.printStatus();
 	bomba.whoAmI();
-	pesao.whoAmI();
+	bomba.printStatus();
+	// pesao.whoAmI();
 
 	// scav.attack("pringao");
 	// scav.printStatus();

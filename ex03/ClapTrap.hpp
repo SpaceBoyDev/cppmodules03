@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 20:18:49 by dario             #+#    #+#             */
-/*   Updated: 2025/10/05 21:35:25 by dario            ###   ########.fr       */
+/*   Updated: 2026/01/20 18:23:18 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,47 +31,27 @@
 #define BG_CYAN "\033[46m"
 #define BG_WHITE "\033[47m"
 
-#define CLAPTRAP 	"ClapTrap "
-#define SCAVTRAP 	"ScavTrap "
-#define FRAGTRAP 	"FragTrap "
-#define DIAMONDTRAP	"DiamondTrap "
-
-enum e_action
-{
-	ARRIVE,
-	DESTROY,
-	ATTACK,
-	TAKEDMG,
-	REPAIR,
-	GUARD,
-	HIGHFIVE,
-	WHOAMI
-};
-
 class ClapTrap
 {
-public:
+	public:
 	ClapTrap(void);
-	ClapTrap(const std::string name);
+	ClapTrap(std::string name);
 	ClapTrap(const ClapTrap &copy);
-	ClapTrap &operator=(const ClapTrap &copy);
-
+	ClapTrap	&operator = (const ClapTrap &copy);
+	
 	~ClapTrap();
 
-	void attack(const std::string &target);
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
+	void	attack(const std::string &target);
+	void	takeDamage(unsigned int amount);
+	void	beRepaired(unsigned int amount);
 
-	void printStatus(void);
-	void printMsg(e_action action, const unsigned int amount,
-				  const std::string &target);
+	void	printStatus(void);
 
-protected:
-	std::string _name;
-	int _hitPts;
-	int _energyPts;
-	int _attackDmg;
-	std::string _trapType;
+	protected:
+	std::string	_name;
+	int			_hitPts;
+	int			_energyPts;
+	int			_attackDmg;
 };
 
 #endif

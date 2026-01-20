@@ -6,30 +6,27 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 21:19:23 by dario             #+#    #+#             */
-/*   Updated: 2025/10/05 22:24:14 by dario            ###   ########.fr       */
+/*   Updated: 2026/01/20 18:39:17 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(void) : ClapTrap("default_clap_name"),
-	ScavTrap(), FragTrap(), _name("default")
+DiamondTrap::DiamondTrap(void) : ClapTrap("default_clap_name"), _name("default")
 {
-	this->_hitPts = FragTrap::_hitPts;
-	this->_energyPts = ScavTrap::_energyPts;
-	this->_attackDmg = FragTrap::_attackDmg;
-	this->_trapType = DIAMONDTRAP;
-	printMsg(ARRIVE, 0, "");
+	this->_hitPts = 100;
+	this->_energyPts = 50;
+	this->_attackDmg = 30;
+	std::cout << "DiamondTrap " << _name << " default constructor\n";
 }
 
 DiamondTrap::DiamondTrap(const std::string name) : ClapTrap(name + "_clap_name"),
-	ScavTrap(), FragTrap(), _name(name)
+	ScavTrap(name + "_clap_name"), FragTrap(name + "_clap_name"), _name(name)
 {
-	this->_hitPts = FragTrap::_hitPts;
-	this->_energyPts = ScavTrap::_energyPts;
-	this->_attackDmg = FragTrap::_attackDmg;
-	this->_trapType = DIAMONDTRAP;
-	printMsg(ARRIVE, 0, "");
+	this->_hitPts = 100;
+	this->_energyPts = 50;
+	this->_attackDmg = 30;
+	std::cout << "DiamondTrap " << _name << " name constructor\n";
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &copy): ClapTrap(copy),
@@ -39,8 +36,7 @@ DiamondTrap::DiamondTrap(const DiamondTrap &copy): ClapTrap(copy),
 	this->_hitPts = copy._hitPts;
 	this->_energyPts = copy._energyPts;
 	this->_attackDmg = copy._attackDmg;
-	this->_trapType = DIAMONDTRAP;
-	printMsg(ARRIVE, 0, "");
+	std::cout << "DiamondTrap " << _name << " copy constructor\n";
 }
 
 DiamondTrap &DiamondTrap::operator=(const DiamondTrap &copy)
@@ -53,61 +49,17 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &copy)
 		this->_hitPts = copy._hitPts;
 		this->_energyPts = copy._energyPts;
 		this->_attackDmg = copy._attackDmg;
+		std::cout << "DiamondTrap " << _name << " equal operator\n";
 	}
 	return (*this);
 }
 
 DiamondTrap::~DiamondTrap()
 {
-	printMsg(DESTROY, 0, "");
-}
-
-void DiamondTrap::attack(const std::string &target)
-{
-	ScavTrap::attack(target);
+	std::cout << "DiamondTrap " << _name << " has been destroyed\n";
 }
 
 void DiamondTrap::whoAmI(void)
 {
-	printMsg(WHOAMI, 0, "");
-}
-
-void DiamondTrap::printMsg(e_action action, const unsigned int amount, const std::string &target)
-{
-	switch (action)
-	{
-	case ARRIVE:
-		std::cout << BG_GREEN << this->_trapType << BLUE << _name << RST BG_GREEN " has DIAarrived!" RST << std::endl;
-		break;
-
-	case DESTROY:
-		std::cout << BG_GREEN << this->_trapType << BLUE << _name << RST BG_GREEN " DIAleaves!" RST << std::endl;
-		break;
-
-	case ATTACK:
-		std::cout << this->_trapType << BLUE << _name << RST " " BG_RED "DIAattacked" RST " " RED
-				  << target << RST "! He did " << _attackDmg << " hit points of damage." << std::endl;
-		break;
-
-	case TAKEDMG:
-		std::cout << this->_trapType << BLUE << _name << RST " " BG_YELLOW "received" RST " " << amount << " hit points of damage." << std::endl;
-		break;
-
-	case REPAIR:
-		std::cout << this->_trapType << BLUE << _name << RST " " BG_MAGENTA "repaired himself" RST " " << amount << " hit points!" << std::endl;
-		break;
-
-	case GUARD:
-		std::cout << this->_trapType << BLUE << _name << RST " is now in " SPECIAL "Gate Keeper" RST " mode!" << std::endl;
-		break;
-
-	case HIGHFIVE:
-		std::cout << this->_trapType << BLUE << _name << RST " displayed a " SPECIAL "HIGH FIVE" RST " request!" << std::endl;
-		break;
-	case WHOAMI:
-		std::cout << "DiamondTrap name: " << this->_name << ", ClapTrap name: " << ClapTrap::_name << std::endl;
-		break;
-	default:
-		break;
-	}
+	std::cout << "DiamondTrap name: " << this->_name << ", ClapTrap name: " << ClapTrap::_name << std::endl;	
 }

@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 22:57:17 by dario             #+#    #+#             */
-/*   Updated: 2026/01/20 17:52:26 by dario            ###   ########.fr       */
+/*   Updated: 2026/01/20 18:15:37 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main(void)
 	ScavTrap scav;
 	ScavTrap llm("LLM");
 
-	FragTrap flag;
+	FragTrap frag;
 	FragTrap gpt("GPT");
 
 	scav.attack("pringao");
@@ -40,13 +40,13 @@ int main(void)
 	llm.printStatus();
 	llm.guardGate();
 
-	flag.attack("pringao");
-	flag.printStatus();
-	flag.takeDamage(5);
-	flag.printStatus();
-	flag.beRepaired(5);
-	flag.printStatus();
-	flag.highFivesGuys();
+	frag.attack("pringao");
+	frag.printStatus();
+	frag.takeDamage(5);
+	frag.printStatus();
+	frag.beRepaired(5);
+	frag.printStatus();
+	frag.highFivesGuys();
 
 	gpt.attack("pringao");
 	gpt.printStatus();
