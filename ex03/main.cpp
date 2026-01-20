@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 22:57:17 by dario             #+#    #+#             */
-/*   Updated: 2025/10/05 22:05:54 by dario            ###   ########.fr       */
+/*   Updated: 2025/10/05 22:50:23 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,17 @@ int main(void)
 	// FragTrap flag;
 	// FragTrap cabron("cabron");
 
-	DiamondTrap diamond;
-	DiamondTrap pesao("pesao");
+	// DiamondTrap diamond;
+	DiamondTrap	bomba("bomba");
+	DiamondTrap pesao(bomba);
 
-	pesao.attack("pringao");
-	pesao.printStatus();
-	pesao.takeDamage(5);
-	pesao.printStatus();
-	pesao.beRepaired(5);
-	pesao.printStatus();
+	// pesao.attack("pringao");
+	// pesao.printStatus();
+	// pesao.takeDamage(5);
+	// pesao.printStatus();
+	// pesao.beRepaired(5);
+	// pesao.printStatus();
+	bomba.whoAmI();
 	pesao.whoAmI();
 
 	// scav.attack("pringao");
