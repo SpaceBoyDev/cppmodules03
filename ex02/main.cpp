@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 22:57:17 by dario             #+#    #+#             */
-/*   Updated: 2026/01/20 18:15:37 by dario            ###   ########.fr       */
+/*   Updated: 2026/01/20 18:45:38 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main(void)
 	FragTrap frag;
 	FragTrap gpt("GPT");
 
-	scav.attack("pringao");
+	scav.attack("roboto");
 	scav.printStatus();
 	scav.takeDamage(5);
 	scav.printStatus();
@@ -32,7 +32,7 @@ int main(void)
 	scav.printStatus();
 	scav.guardGate();
 
-	llm.attack("pringao");
+	llm.attack("roboto");
 	llm.printStatus();
 	llm.takeDamage(5);
 	llm.printStatus();
@@ -40,7 +40,7 @@ int main(void)
 	llm.printStatus();
 	llm.guardGate();
 
-	frag.attack("pringao");
+	frag.attack("roboto");
 	frag.printStatus();
 	frag.takeDamage(5);
 	frag.printStatus();
@@ -48,7 +48,7 @@ int main(void)
 	frag.printStatus();
 	frag.highFivesGuys();
 
-	gpt.attack("pringao");
+	gpt.attack("roboto");
 	gpt.printStatus();
 	gpt.takeDamage(5);
 	gpt.printStatus();

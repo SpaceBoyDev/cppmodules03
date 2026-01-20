@@ -6,7 +6,7 @@
 /*   By: dario <dario@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 22:57:17 by dario             #+#    #+#             */
-/*   Updated: 2026/01/20 18:35:06 by dario            ###   ########.fr       */
+/*   Updated: 2026/01/20 18:45:27 by dario            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,57 +17,57 @@
 int main(void)
 {
 	ClapTrap clap;
-	ClapTrap mamon("mamon");
+	ClapTrap chibi("chibi");
 
 	ScavTrap scav;
-	ScavTrap maton("maton");
+	ScavTrap glados("glados");
 
-	FragTrap flag;
-	FragTrap cabron("cabron");
+	FragTrap frag;
+	FragTrap gpt("GPT");
 
-	// DiamondTrap diamond;
-	DiamondTrap	bomba("bomba");
-	// DiamondTrap pesao(bomba);
+	DiamondTrap diamond;
+	DiamondTrap	bomb("bomb");
+	DiamondTrap pesao(bomb);
 
-	// pesao.attack("pringao");
-	// pesao.printStatus();
-	// pesao.takeDamage(5);
-	// pesao.printStatus();
-	// pesao.beRepaired(5);
-	// pesao.printStatus();
-	bomba.whoAmI();
-	bomba.printStatus();
-	// pesao.whoAmI();
+	pesao.attack("roboto");
+	pesao.printStatus();
+	pesao.takeDamage(5);
+	pesao.printStatus();
+	pesao.beRepaired(5);
+	pesao.printStatus();
+	bomb.whoAmI();
+	bomb.printStatus();
+	pesao.whoAmI();
 
-	// scav.attack("pringao");
-	// scav.printStatus();
-	// scav.takeDamage(5);
-	// scav.printStatus();
-	// scav.beRepaired(5);
-	// scav.printStatus();
-	// scav.guardGate();
+	scav.attack("roboto");
+	scav.printStatus();
+	scav.takeDamage(5);
+	scav.printStatus();
+	scav.beRepaired(5);
+	scav.printStatus();
+	scav.guardGate();
 
-	// maton.attack("pringao");
-	// maton.printStatus();
-	// maton.takeDamage(5);
-	// maton.printStatus();
-	// maton.beRepaired(5);
-	// maton.printStatus();
-	// maton.guardGate();
+	glados.attack("roboto");
+	glados.printStatus();
+	glados.takeDamage(5);
+	glados.printStatus();
+	glados.beRepaired(5);
+	glados.printStatus();
+	glados.guardGate();
 
-	// flag.attack("pringao");
-	// flag.printStatus();
-	// flag.takeDamage(5);
-	// flag.printStatus();
-	// flag.beRepaired(5);
-	// flag.printStatus();
-	// flag.highFivesGuys();
+	frag.attack("roboto");
+	frag.printStatus();
+	frag.takeDamage(5);
+	frag.printStatus();
+	frag.beRepaired(5);
+	frag.printStatus();
+	frag.highFivesGuys();
 
-	// cabron.attack("pringao");
-	// cabron.printStatus();
-	// cabron.takeDamage(5);
-	// cabron.printStatus();
-	// cabron.beRepaired(5);
-	// cabron.printStatus();
-	// cabron.highFivesGuys();
+	gpt.attack("roboto");
+	gpt.printStatus();
+	gpt.takeDamage(5);
+	gpt.printStatus();
+	gpt.beRepaired(5);
+	gpt.printStatus();
+	gpt.highFivesGuys();
 }
