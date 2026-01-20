@@ -6,7 +6,7 @@
 /*   By: darmarti <darmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 20:18:47 by dario             #+#    #+#             */
-/*   Updated: 2026/01/16 18:29:32 by darmarti         ###   ########.fr       */
+/*   Updated: 2026/01/20 18:55:15 by darmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,6 @@ void ClapTrap::printStatus(void)
 	std::cout << "\n----"<< this->_name << " current status----" << std::endl
 		<< "Current Hit Points: " << this->_hitPts << std::endl
 		<< "Current Energy Points: " << this->_energyPts << std::endl
+		<< "Attack Damage: " << this->_attackDmg << std::endl
 		<< "---------------------------------\n\n";
 }
